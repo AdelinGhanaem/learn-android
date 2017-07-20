@@ -1,11 +1,16 @@
 package com.example.adel.simplenotes;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,11 +20,12 @@ import com.example.adel.simplenotes.model.NoteType;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final List<Note> NOTE_LIST = new ArrayList<Note>();
+    private static final NotesRepository NOTES_REPOSITORY = new NotesRepository();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +54,9 @@ public class MainActivity extends AppCompatActivity {
         if (item.getTitle().equals(getResources().getString(R.string.save))) {
             String noteText = ((EditText) findViewById(R.id.note_text)).getText().toString();
             String noteTitle = ((EditText) findViewById(R.id.note_title)).getText().toString();
-            Note note = new Note(noteTitle, noteText, new Date(), NoteType.SIMPLE_NOTE);
-            NOTE_LIST.add(note);
-
-
+            Random random = new Random();
+            Note note = new Note(random.nextInt(), noteTitle, noteText, new Date(), NoteType.SIMPLE_NOTE);
+            NOTES_REPOSITORY.save(note);
         }
         return true;
     }
@@ -87,4 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 }

@@ -14,7 +14,8 @@ public class Note {
     private Date createdOn;
     private NoteType noteType;
 
-    public Note(String title, String text, Date createdOn, NoteType noteType) {
+    public Note(int id, String title, String text, Date createdOn, NoteType noteType) {
+        this.id = id;
         this.title = title;
         this.text = text;
         this.createdOn = createdOn;
@@ -52,6 +53,17 @@ public class Note {
     public void setNoteType(NoteType noteType) {
         this.noteType = noteType;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
 }
+
 
 
