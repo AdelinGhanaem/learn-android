@@ -14,4 +14,11 @@
         android:id="@+id/save"
         android:title="@string/save"
         app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/view_notes_lists"
+        android:title="@string/view_notes_lists"
+        app:showAsAction="ifRoom" />
+
 </menu>

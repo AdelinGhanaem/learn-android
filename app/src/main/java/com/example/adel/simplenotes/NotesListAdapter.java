@@ -45,7 +45,6 @@ public class NotesListAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.note_list_item, viewGroup, false);
         }
         Note note =  getNotesRepository().getById(i);
-
         TextView noteTitle = view.findViewById(R.id.note_title);
         noteTitle.setText(note.getTitle());
         TextView noteText = view.findViewById(R.id.note_title);
